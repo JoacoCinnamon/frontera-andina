@@ -1,0 +1,51 @@
+---
+import Facebook from "@/icons/facebook.astro";
+import Instagram from "@/icons/instagram.astro";
+import Maptalk from "./maptalk.astro";
+---
+
+<footer id="contacto" class="mt-[135px] pb-[100px] w-full">
+  <h5
+    class="text-center text-[30px] leading-[40px] lg:text-[50px] lg:leading-[62px] font-dm capitalize text-primary-200"
+  >
+    Contacto
+  </h5>
+  <div
+    class="w-full max-w-[1200px] px-12 xl:px-0 mx-auto pt-10 pb-[10px] grid grid-cols-1 md:grid-cols-2 gap-6"
+  >
+    <!-- Map -->
+    <section
+      class="flex items-center justify-center lg:max-w-[1200px] px-3 xl:px-0 w-full h-full mx-auto"
+    >
+      <Maptalk />
+    </section>
+    <div class="col-span-1 flex flex-col gap-4">
+      <div class="flex items-center gap-5 md:gap-[54px]">
+        <a href="/">
+          <Facebook />
+        </a>
+        <a href="/">
+          <Instagram />
+        </a>
+      </div>
+      <div class="flex flex-col gap-6">
+        <p
+          class="tracking-tight text-base lg:text-[22px] lg:leading-[33px] font-jost text-text-gray"
+        >
+          Costanera Quimey Co S/N, Caviahue Neuquén, Argentina
+        </p>
+        <a
+          href="mailto:frontera.andina@gmail.com"
+          class="tracking-tight text-base lg:text-[22px] lg:leading-[33px] font-jost text-text-gray"
+        >
+          frontera.andina@gmail.com
+        </a>
+        <p
+          class="tracking-tight text-base lg:text-[22px] lg:leading-[33px] font-jost text-text-gray"
+        >
+          02948 15-41-8104
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

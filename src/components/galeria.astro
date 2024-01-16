@@ -1,0 +1,32 @@
+---
+import { siteConfig } from "@/site";
+import { Carousel } from "./carousel";
+import CarouselSwipper from "./carousel-swipper.astro";
+---
+
+<section
+  class="lg:max-w-[1200px] px-12 xl:px-0 w-full mx-auto pt-[100px] lg:pt-[200px]"
+>
+  <h2
+    id="galeria"
+    class="font-dm tracking-wide text-center leading-[37px] lg:leading-[62.50px] text-[30px] lg:text-[50px] w-full lg:max-w-[50%] pb-2 mx-auto"
+  >
+    Galería
+  </h2>
+  <p
+    class="text-base md:text-[22px] text-center tracking-tight font-jost text-text-gray leading-[33px] lg:max-w-[60%] mx-auto"
+  >
+    Te invitamos a descubrir la patagonia termal argentina.
+  </p>
+
+  <div class="pt-[50px]">
+    <!-- <Carousel
+      showBullets={true}
+      images={[...siteConfig.images, ...siteConfig.heroImages]}
+      client:load
+    /> -->
+    <CarouselSwipper
+      images={[...siteConfig.images, ...siteConfig.heroImages]}
+    />
+  </div>
+</section>

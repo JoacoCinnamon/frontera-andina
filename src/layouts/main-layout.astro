@@ -1,0 +1,99 @@
+---
+import Header from "@/components/header.astro";
+import Whatsapp from "@/components/whatsapp.astro";
+import Footer from "@/components/footer.astro";
+import { siteConfig } from "@/site";
+import { ViewTransitions } from "astro:transitions";
+
+export interface LayoutProps {
+  title: string;
+}
+
+const { title } = Astro.props as LayoutProps;
+const { generator, site } = Astro;
+const image = new URL("social.jpg", site);
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={generator} />
+    <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
+
+    <title>{title}</title>
+    <meta title={title} />
+    <meta name="description" content={siteConfig.description} />
+
+    <!-- Redes sociales -->
+    <!-- Facebook Meta Tags -->
+    <meta property="og:title" content="Frontera Andina" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={siteConfig.description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={site} />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="fronteraandina.com.ar" />
+    <meta property="twitter:url" content={site} />
+    <meta name="twitter:title" content="Frontera Andina" />
+    <meta name="twitter:description" content={siteConfig.description} />
+    <meta name="twitter:image" content={image} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+
+    <style is:global>
+      #header-nav {
+        animation: blur linear both;
+        animation-timeline: scroll();
+        animation-range: 0 500px;
+      }
+
+      @keyframes blur {
+        to {
+          box-shadow:
+            0px 5px 50px -5px rgba(0, 0, 0, 0.1),
+            0px 0px 0 1px rgba(0, 0, 0, 0.3);
+          background: rgba(0, 0, 0, 0.3);
+          backdrop-filter: blur(10px);
+        }
+      }
+
+      .text__glowing {
+        transition: text-shadow 0.3s ease;
+      }
+
+      .text__glowing:hover {
+        text-shadow:
+          0 0 10px #fff,
+          0 0 20px #fff,
+          0 0 40px #fff,
+          0 0 80px #fff,
+          0 0 120px #fff;
+      }
+    </style>
+    <ViewTransitions />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Whatsapp />
+    <Footer />
+    <p
+      class="tracking-tight text-base text-center border border-gray-300 bg-white py-10 lg:text-[22px] lg:leading-[33px] font-jost text-text-gray"
+    >
+      Copyright © {new Date().getFullYear()} Frontera Andina | Desarrollado por
+      Joaquín Pontello
+    </p>
+  </body>
+</html>

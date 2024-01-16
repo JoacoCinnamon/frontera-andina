@@ -1,0 +1,12 @@
+---
+import FronteraAndina from "@/assets/frontera-andina.svg";
+
+const { ...restOfProps } = Astro.props;
+---
+
+<img
+  src={FronteraAndina.src}
+  alt="Logo Frontera Andina"
+  draggable={false}
+  {...restOfProps}
+/>

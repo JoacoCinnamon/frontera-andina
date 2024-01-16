@@ -1,0 +1,30 @@
+<style>
+  /*
+  Based on TailwindCSS recommendations,
+  consider using classes instead of the `@apply` directive
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+  .bg-hero {
+    @apply bg-no-repeat bg-cover bg-[center_center] bg-fixed;
+    background: linear-gradient(rgba(56, 52, 48, 0.6), rgba(56, 52, 48, 0.6)),
+      url(/hero.webp);
+  }
+</style>
+<section
+  class="w-full bg-hero bg-no-repeat bg-cover h-screen lg:min-h-[110vh] px-12 xl:px-0 flex items-center"
+>
+  <div class="lg:max-w-[1200px] w-full mx-auto flex flex-col">
+    <h1
+      class="text-[40px] leading-[50px] md:text-[60px] xl:text-[85px] pb-4 font-dm md:leading-[106.25px] w-full xl:max-w-[50%] font-medium text-white"
+    >
+      Frontera Andina
+    </h1>
+    <p
+      class="text-base md:text-[22px] pb-5 font-jost text-white w-full lg:max-w-[50%]"
+    >
+      Contemplar una nevada desde el living, pasear por sus paisajes únicos en
+      trineos tirados por perros o disfrutar de los deportes son opciones al
+      alcance de la mano.
+    </p>
+  </div>
+</section>

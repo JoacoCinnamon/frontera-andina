@@ -1,0 +1,64 @@
+---
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
+
+const buttonVariants = cva(
+  "rounded-[18px] flex capitalize items-center justify-center gap-[9px] w-fit text-white text-base lg:text-lg font-semibold font-['Jost'] leading-snug tracking-tight",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary-200",
+        secondary: "bg-primary-100",
+      },
+      size: {
+        default: "px-10 py-5 md:px-[54px] md:py-[26px]",
+        primary: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+);
+
+type ButtonProps = {
+  text?: string;
+  type?: "button" | "submit" | "reset";
+  class?: string;
+  target?: string;
+} & VariantProps<typeof buttonVariants>;
+
+const {
+  text = Astro.slots.render("default"),
+  type = "button",
+  target,
+  class: className = "",
+  variant,
+  size,
+  ...rest
+} = Astro.props as ButtonProps;
+---
+
+{
+  type === "button" || type === "submit" || type === "reset" ? (
+    <button
+      type={type}
+      class={cn(buttonVariants({ variant, size, className }))}
+      {...rest}
+    >
+      <Fragment set:html={text} />
+    </button>
+  ) : (
+    <a
+      class={cn(buttonVariants({ variant, size, className }))}
+      {...(target ? { target: target, rel: "noopener noreferrer" } : {})}
+      {...rest}
+    >
+      <Fragment set:html={text} />
+    </a>
+  )
+}
