@@ -1,4 +1,6 @@
 ---
+import "swiper/css";
+
 type Props = {
   images: {
     original: string;
@@ -78,9 +80,6 @@ const { images = [] } = Astro.props;
   class="swiper mySwiper2"
 >
   <div class="swiper-wrapper">
-    <!-- <div class="swiper-slide">
-      <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-    </div> -->
     {
       images.map((img) => {
         return (
@@ -110,7 +109,6 @@ const { images = [] } = Astro.props;
 
 <script>
   import { Swiper } from "swiper/bundle";
-  import "swiper/css";
 
   const swiper = new Swiper(".mySwiper", {
     loop: true,

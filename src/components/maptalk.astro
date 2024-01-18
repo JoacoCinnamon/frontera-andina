@@ -1,15 +1,18 @@
-<!-- https://github.com/maptalks/maptalks.js -->
+---
+import "maptalks/dist/maptalks.css";
+---
+
 <div
   transition:persist
   id="map"
   class="container w-full h-[300px] md:w-[800px] md:h-[500px]"
 >
 </div>
-<link rel="stylesheet" href="/src/lib/maptalk/maptalks.css" />
-<script type="text/javascript" src="/src/lib/maptalk/maptalks.min.js"></script>
-<script type="text/javascript">
-  const CORDENADAS_CABAÑAS = [-71.0496504, -37.8746745];
 
+<script>
+  import * as maptalks from "maptalks";
+
+  const CORDENADAS_CABAÑAS = [-71.0496504, -37.8746745];
   const map = new maptalks.Map("map", {
     center: CORDENADAS_CABAÑAS,
     zoom: 15,
