@@ -6,13 +6,6 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-      backgroundImage: {
-        main: "url('/Background.jpg')",
-        about: "url('/aboutpage-bg.png')",
-        interiores: "url('/int_1.jpg')",
-        services: "url('/servicespage-bg.jpg')",
-        contact: "url('/contactpage-bg.jpg')",
-      },
       fontFamily: {
         dm: ["DM Serif Display", "serif"],
         jost: ["Jost", "sans-serif"], // Ensure fonts with spaces have " " surrounding it.
