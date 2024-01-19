@@ -1,7 +1,6 @@
 ---
-import { siteConfig } from "@/site";
-import { Carousel } from "./carousel";
 import CarouselSwipper from "./carousel-swipper.astro";
+import PhotoSwipe from "./photo-swipe.astro";
 ---
 
 <section
@@ -20,13 +19,9 @@ import CarouselSwipper from "./carousel-swipper.astro";
   </p>
 
   <div class="pt-[50px]">
-    <!-- <Carousel
-      showBullets={true}
+    <!-- <CarouselSwipper
       images={[...siteConfig.images, ...siteConfig.heroImages]}
-      client:load
     /> -->
-    <CarouselSwipper
-      images={[...siteConfig.images, ...siteConfig.heroImages]}
-    />
+    <PhotoSwipe />
   </div>
 </section>

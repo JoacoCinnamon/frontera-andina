@@ -1,0 +1,78 @@
+---
+import "photoswipe/style.css";
+import galleryInfo from "@/data/meta-gallery.json";
+---
+
+<style is:global>
+  .pswp {
+    --pswp-bg: #00012a;
+  }
+
+  #gallery a {
+    cursor: zoom-in;
+    animation: fade-up-images linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 20%;
+  }
+
+  @keyframes fade-up-images {
+    0% {
+      opacity: 0;
+      translate: 0 50px;
+      scale: 0.7;
+    }
+    100% {
+      opacity: 1;
+      translate: 0 0;
+      scale: 1;
+    }
+  }
+</style>
+
+<masonry-layout
+  gap="24"
+  maxcolwidth="600"
+  class="lg:mx-auto mx-4 py-20"
+  id="gallery"
+>
+  {
+    galleryInfo.map(({ height, width }, i) => (
+      <a
+        class="group rounded-xl hover:scale-105 hover:contrast-[110%] transition-all relative"
+        href={`/gallery/img-${i + 1}.webp`}
+        target="_blank"
+        data-cropped="true"
+        data-pswp-width={width}
+        data-pswp-height={height}
+      >
+        <img
+          class="rounded-xl object-cover w-full h-auto"
+          loading="lazy"
+          src={`/gallery/thumbnails/img-${i + 1}.webp`}
+          alt="Fotografía de los premios ESLAND"
+        />
+        <img
+          class="blur-md opacity-0 group-hover:opacity-100 absolute inset-0 transition contrast-150 -z-10 object-cover"
+          loading="lazy"
+          src={`/gallery/thumbnails/img-${i + 1}.webp`}
+          alt="Imagen con efecto blur para hacer de sombra de una fotografía de los premios ESLAND"
+        />
+      </a>
+    ))
+  }
+</masonry-layout>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "@appnest/masonry-layout";
+
+  document.addEventListener("astro:page-load", () => {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: "#gallery",
+      children: "a",
+      pswpModule: () => import("photoswipe"),
+    });
+
+    lightbox.init();
+  });
+</script>

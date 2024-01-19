@@ -21,44 +21,4 @@ export const siteConfig = {
       label: "Contacto"
     },
   ],
-  images: [
-    {
-      original: "/int_1.jpg",
-      thumbnail: "/int_1.jpg",
-    },
-    {
-      original: "/int_2.jpg",
-      thumbnail: "/int_2.jpg",
-    },
-    {
-      original: "/int_3.jpg",
-      thumbnail: "/int_3.jpg",
-    },
-    {
-      original: "/int_4.jpg",
-      thumbnail: "/int_4.jpg",
-    },
-  ],
-  heroImages: [
-    {
-      original: "/imagen02.jpg",
-      thumbnail: "/imagen02.jpg",
-    },
-    {
-      original: "/imagen03.jpg",
-      thumbnail: "/imagen03.jpg",
-    },
-    {
-      original: "/imagen01.jpg",
-      thumbnail: "/imagen01.jpg",
-    },
-    {
-      original: "/imagen04.jpg",
-      thumbnail: "/imagen04.jpg",
-    },
-    {
-      original: "/imagen05.jpg",
-      thumbnail: "/imagen05.jpg",
-    },
-  ]
 };
