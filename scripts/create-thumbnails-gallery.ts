@@ -1,12 +1,12 @@
-import fg from "fast-glob";
+import { Glob } from "bun";
 import sharp from "sharp";
 import { join, dirname, basename } from "node:path";
 
-const files = await fg(
+const glob = new Glob(
   "public/gallery/*.{webp}"
 );
 
-for await (const file of files) {
+for await (const file of glob.scan(".")) {
   console.info(`Converting ${file}`);
   const newFilePath = join(dirname(file), "thumbnails", basename(file));
 
