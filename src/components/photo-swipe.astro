@@ -30,10 +30,11 @@ import galleryInfo from "@/data/meta-gallery.json";
 </style>
 
 <masonry-layout
-  gap="24"
-  maxcolwidth="600"
+  gap="12"
+  maxcolwidth="300"
   class="lg:mx-auto mx-4 py-20"
   id="gallery"
+  aria-label="Galería"
 >
   {
     galleryInfo.map(({ height, width }, i) => (
@@ -49,13 +50,15 @@ import galleryInfo from "@/data/meta-gallery.json";
           class="rounded-xl object-cover w-full h-auto"
           loading="lazy"
           src={`/gallery/thumbnails/img-${i + 1}.webp`}
-          alt="Fotografía de los premios ESLAND"
+          alt={`Foto número ${i + 1} de frontera andina`}
         />
         <img
           class="blur-md opacity-0 group-hover:opacity-100 absolute inset-0 transition contrast-150 -z-10 object-cover"
           loading="lazy"
           src={`/gallery/thumbnails/img-${i + 1}.webp`}
-          alt="Imagen con efecto blur para hacer de sombra de una fotografía de los premios ESLAND"
+          alt={`Imagen con efecto blur paara generar una sombra en la foto número ${
+            i + 1
+          } de frontera andina`}
         />
       </a>
     ))
