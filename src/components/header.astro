@@ -38,8 +38,8 @@ import HeaderLink from "./header-link.astro";
       class="relative flex flex-grow basis-0 justify-end text-2xl md:hidden z-50"
     >
       <span id="menu-icon">
-        <span class=""><MenuIcon /></span>
-        <span class="hidden"><CloseIcon /></span>
+        <span class=""><MenuIcon class="text-white" /></span>
+        <span class="hidden"><CloseIcon class="text-white" /></span>
       </span>
     </button>
 
@@ -52,7 +52,7 @@ import HeaderLink from "./header-link.astro";
   <!-- Menú de navegación para pantallas más chicas -->
   <nav
     id="mobile-menu"
-    class="bg-[#151a36]/90 -translate-y-full transition-transform md:hidden w-full flex flex-col items-center text-center text-2xl fixed top-0 left-0 right-0 h-dvh place-content-center"
+    class="bg-[#333333]/90 -translate-y-full transition-transform md:hidden w-full flex flex-col items-center text-center text-2xl fixed top-0 left-0 right-0 h-dvh place-content-center"
   >
     <HeaderLink class="text__glowing" href="#inicio">Inicio</HeaderLink>
     <HeaderLink class="my-4 text__glowing" href="#interiores">
