@@ -4,29 +4,11 @@ import Hero from "@/components/hero.astro";
 import About from "@/components/about.astro";
 import Interiores from "@/components/interiores.astro";
 import Galeria from "@/components/galeria.astro";
-import Button from "@/components/button.astro";
 ---
-
-<style>
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-</style>
 
 <MainLayout title="Frontera Andina">
   <Hero />
   <About />
   <Interiores />
-  <Galeria client:visible />
-  <section
-    class="w-full lg:max-w-[1200px] mx-auto px-12 xl:px-0 flex flex-col-reverse justify-center items-center lg:grid grid-cols-2 gap-[75px] pt-[100px] lg:pt-[200px]"
-  >
-  </section>
+  <Galeria />
 </MainLayout>

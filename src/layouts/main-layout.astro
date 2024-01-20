@@ -4,6 +4,7 @@ import Whatsapp from "@/components/whatsapp.astro";
 import Footer from "@/components/footer.astro";
 import { siteConfig } from "@/site";
 import { ViewTransitions } from "astro:transitions";
+import CustomStyles from "@/components/custom-styles.astro";
 
 export interface LayoutProps {
   title: string;
@@ -50,36 +51,7 @@ const image = new URL("social.jpg", site);
 
     <title>{title}</title>
 
-    <style is:global>
-      #header-nav {
-        animation: blur linear both;
-        animation-timeline: scroll();
-        animation-range: 0 500px;
-      }
-
-      @keyframes blur {
-        to {
-          box-shadow:
-            0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-            0px 0px 0 1px rgba(0, 0, 0, 0.3);
-          background: rgba(0, 0, 0, 0.3);
-          backdrop-filter: blur(10px);
-        }
-      }
-
-      .text__glowing {
-        transition: text-shadow 0.3s ease;
-      }
-
-      .text__glowing:hover {
-        text-shadow:
-          0 0 10px #fff,
-          0 0 20px #fff,
-          0 0 40px #fff,
-          0 0 80px #fff,
-          0 0 120px #fff;
-      }
-    </style>
+    <CustomStyles />
     <ViewTransitions />
   </head>
   <body>
@@ -89,11 +61,11 @@ const image = new URL("social.jpg", site);
     </main>
     <Whatsapp />
     <Footer />
-    <p
+    <!-- <p
       class="tracking-tight text-base text-center border border-gray-300 bg-white py-10 lg:text-[22px] lg:leading-[33px] font-jost text-text-gray"
     >
       Copyright © {new Date().getFullYear()} Frontera Andina | Desarrollado por
       Joaquín Pontello
-    </p>
+    </p> -->
   </body>
 </html>
