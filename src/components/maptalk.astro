@@ -6,6 +6,7 @@ import "maptalks/dist/maptalks.css";
   transition:persist
   id="map"
   class="container w-full h-[300px] md:w-[800px] md:h-[500px]"
+  aria-label="Mapa de la ubicación de Frontera Andina"
 >
 </div>
 
@@ -13,48 +14,53 @@ import "maptalks/dist/maptalks.css";
   import * as maptalks from "maptalks";
 
   const CORDENADAS_CABAÑAS = [-71.0496504, -37.8746745];
-  const map = new maptalks.Map("map", {
-    center: CORDENADAS_CABAÑAS,
-    zoom: 15,
-    dragRotate: false, // Disable drag rotation
-    dragPitch: false, // Disable drag pitch
-    baseLayer: new maptalks.TileLayer("base", {
-      urlTemplate:
-        "https://mt1.google.com/vt/lyrs=m&hl=es&x={x}&y={y}&z={z}&s=Ga",
-      subdomains: ["a", "b", "c"],
-      attribution: "Frontera Andina",
-    }),
-    layers: [new maptalks.VectorLayer("v")],
+
+  document.addEventListener("astro:page-load", () => {
+    const map = new maptalks.Map("map", {
+      center: CORDENADAS_CABAÑAS,
+      zoom: 15,
+      minZoom: 12,
+      maxZoom: 17,
+      dragRotate: false, // Disable drag rotation
+      dragPitch: false, // Disable drag pitch
+      baseLayer: new maptalks.TileLayer("base", {
+        urlTemplate:
+          "https://mt1.google.com/vt/lyrs=m&hl=es&x={x}&y={y}&z={z}&s=Ga",
+        subdomains: ["a", "b", "c"],
+        attribution: "Frontera Andina",
+      }),
+      layers: [new maptalks.VectorLayer("v")],
+    });
+    const center = map.getCenter();
+
+    // const m1 = new maptalks.Marker(center.add(-0.00003, -0.00004));
+    // map.getLayer("v").addGeometry(m1);
+
+    // const zoomControl = new maptalks.control.Zoom({
+    //   position: "bottom-right",
+    //   zoomLevel: true,
+    // }).addTo(map);
+
+    const metric = new maptalks.control.Scale({
+      position: "bottom-right",
+      maxWidth: 150,
+      metric: true,
+      imperial: false,
+    });
+    map.addControl(metric);
+
+    function centerMap() {
+      map.setCenterAndZoom(center, 15);
+    }
+
+    const toolbar = new maptalks.control.Toolbar({
+      position: "top-left",
+      items: [
+        {
+          item: "Centrar",
+          click: centerMap,
+        },
+      ],
+    }).addTo(map);
   });
-
-  const center = map.getCenter();
-  const m1 = new maptalks.Marker(center.add(-0.00003, -0.00004));
-  // map.getLayer("v").addGeometry(m1);
-
-  const zoomControl = new maptalks.control.Zoom({
-    position: "bottom-right",
-    zoomLevel: true,
-  }).addTo(map);
-
-  var metric = new maptalks.control.Scale({
-    position: "top-right",
-    maxWidth: 150,
-    metric: true,
-    imperial: false,
-  });
-  map.addControl(metric);
-
-  function centerMap() {
-    map.setCenterAndZoom(center, 15);
-  }
-
-  const toolbar = new maptalks.control.Toolbar({
-    position: "top-left",
-    items: [
-      {
-        item: "Centrar",
-        click: centerMap,
-      },
-    ],
-  }).addTo(map);
 </script>
