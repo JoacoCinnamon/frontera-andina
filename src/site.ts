@@ -5,19 +5,19 @@ export const siteConfig = {
   Contamos con cámara de seguridad.`,
   mainSections: [
     {
-      href: "#inicio",
+      href: "/#inicio",
       label: "Inicio"
     },
     {
-      href: "#interiores",
-      label: "Interiores"
+      href: "/#servicios",
+      label: "Servicios"
     },
     {
-      href: "#galeria",
+      href: "/#galeria",
       label: "Galería"
     },
     {
-      href: "#contacto",
+      href: "/#contacto",
       label: "Contacto"
     },
   ],

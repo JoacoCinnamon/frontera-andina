@@ -3,6 +3,7 @@ import Logo from "@/icons/logo.astro";
 import CloseIcon from "@/icons/close-icon.astro";
 import MenuIcon from "@/icons/menu-icon.astro";
 import HeaderLink from "./header-link.astro";
+import { siteConfig } from "@/site";
 ---
 
 <header id="header-nav" class="fixed top-0 z-50 w-full px-6 py-5">
@@ -24,12 +25,13 @@ import HeaderLink from "./header-link.astro";
     <nav
       class="hidden md:flex flex-grow lg:basis-0 w-full gap-x-8 text-xl md:justify-center font-medium items-center md:py-2"
     >
-      <HeaderLink class="text__glowing" href="#inicio">Inicio</HeaderLink>
-      <HeaderLink class="text__glowing" href="#interiores">
-        Interiores
-      </HeaderLink>
-      <HeaderLink class="text__glowing" href="#galeria">Galería</HeaderLink>
-      <HeaderLink class="text__glowing" href="#contacto">Contacto</HeaderLink>
+      {
+        siteConfig.mainSections.map((link) => (
+          <HeaderLink class="text__glowing" href={link.href}>
+            {link.label}
+          </HeaderLink>
+        ))
+      }
     </nav>
 
     <!-- Botón de menú para pantallas pequeñas -->
@@ -54,14 +56,13 @@ import HeaderLink from "./header-link.astro";
     id="mobile-menu"
     class="bg-[#333333]/90 -translate-y-full transition-transform md:hidden w-full flex flex-col items-center text-center text-2xl fixed top-0 left-0 right-0 h-dvh place-content-center"
   >
-    <HeaderLink class="text__glowing" href="#inicio">Inicio</HeaderLink>
-    <HeaderLink class="my-4 text__glowing" href="#interiores">
-      Interiores
-    </HeaderLink>
-    <HeaderLink class="my-4 text__glowing" href="#galeria">Galería</HeaderLink>
-    <HeaderLink class="my-4 text__glowing" href="#contacto">
-      Contacto
-    </HeaderLink>
+    {
+      siteConfig.mainSections.map((link) => (
+        <HeaderLink class="my-4 text__glowing" href={link.href}>
+          {link.label}
+        </HeaderLink>
+      ))
+    }
   </nav>
 </header>
 
