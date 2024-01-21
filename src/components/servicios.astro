@@ -2,9 +2,7 @@
 const services = [
   {
     title: "Ubicación Ideal",
-    text: `Costanera Quimey Co (ruta de acceso a Caviahue).
-  Costa de lago, a 1,5 km del centro de esquí.
-  A 4 cuadras del centro comercial.`,
+    text: `Con vistas al lago Cavihue. A 4 cuadras del centro comercial y a 10 minutos en auto del Cerro Cavihue.`,
   },
   {
     title: "Cabañas Espaciosas",
@@ -16,6 +14,7 @@ const services = [
     title: "Servicios Esenciales",
     text: `Servicio de Mucama.
   Opción de lavado de vajilla.
+  Ropa blanca en descanso de calidad. 
   `,
   },
   {
@@ -36,7 +35,8 @@ const services = [
     title: "Equipamiento de Cocina",
     text: `Heladera con freezer.
   Microondas, Cafetera Eléctrica, Pava eléctrica.
-  Cocina con horno.`,
+  Cocina con horno.
+  Cada cabaña con su propia parilla.`,
   },
   {
     title: "Descanso de Calidad",
@@ -60,8 +60,39 @@ const services = [
   #servicios {
     background-image: url("/gallery/img-4.webp");
   }
+
+  /* Estilos de las cartas de servicios */
+  .article {
+    transition:
+      box-shadow 0.2s ease-in-out,
+      transform 0.2s ease-in-out,
+      border-radius 0.2s ease-in-out,
+      background-color 0.2s ease-in-out;
+  }
+
+  .article:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    border-radius: 10px;
+    background-color: #f5f5f5;
+  }
+
+  .article h3 {
+    transition:
+      opacity 0.2s ease-in-out,
+      color 0.2s ease-in-out;
+  }
+
+  .article p {
+    transition: text-shadow 0.2s ease-in-out;
+  }
+
+  .article:hover p {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
 </style>
 
+<!-- Sección de servicios con título y descripción general -->
 <section
   id="servicios"
   class="w-full bg-no-repeat bg-cover mt-[100px] lg:mt-[200px] h-[50vh] flex justify-center items-end"
@@ -75,27 +106,28 @@ const services = [
       Servicios
     </h1>
     <p
-      class="text-base lg:text-[22px] lg:leading-[33px] tracking-tight font-jost text-text-gray"
+      class="text-base lg:text-[22px] lg:leading-[33px] tracking-tight text-text-gray"
     >
       Descubrí los servicios y la comodidad de nuestros espacios interiores.
     </p>
   </div>
 </section>
 
+<!-- Sección que muestra los servicios con títulos y descripciones -->
 <section
   class="lg:max-w-[1200px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 lg:gap-y-12 xl:px-0 w-full mx-auto pt-[50px] lg:pt-[150px] justify-between"
 >
   {
     services.map((service) => {
       return (
-        <div class="text-center w-full col-span-1 max-w-[358px] mx-auto flex rounded-[30px] hover:bg-primary-300 px-5 py-[83px] flex-col justify-center items-center gap-3 md:gap-5 shadow-md">
+        <article class="text-center w-full col-span-1 max-w-[358px] mx-auto flex rounded-[30px] hover:bg-primary-300 py-3 px-6 flex-col justify-center items-center gap-3 md:gap-5 shadow-md article">
           <h3 class="text-text-blue font-dm text-[22px] md:text-[25px] leading-loose">
             {service.title}
           </h3>
-          <p class="text-base text-balance md:text-[22px] tracking-tight font-jost text-text-gray leading-[33px] text-center">
+          <p class="text-base text-pretty md:text-[22px] tracking-tight text-text-gray leading-[33px]">
             {service.text}
           </p>
-        </div>
+        </article>
       );
     })
   }
