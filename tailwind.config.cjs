@@ -6,10 +6,6 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-      fontFamily: {
-        dm: ["DM Serif Display", "serif"],
-        jost: ["Jost", "sans-serif"], // Ensure fonts with spaces have " " surrounding it.
-      },
       colors: {
         // Configure your color palette here
         primary: {
@@ -28,24 +24,4 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    plugin(function ({ addUtilities }) {
-      addUtilities({
-        ".center": {
-          display: "flex",
-          "justify-content": "center",
-          "align-items": "center",
-        },
-        ".startCenter": {
-          display: "flex",
-          "align-items": "center",
-        },
-        ".btwn": {
-          display: "flex",
-          "justify-content": "space-between",
-          "align-items": "center",
-        },
-      });
-    }),
-  ],
 };
