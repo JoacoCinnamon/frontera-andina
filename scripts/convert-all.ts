@@ -16,7 +16,7 @@ for await (const file of glob.scan(".")) {
     // .trim({ threshold: 0 }) // This removes transparent pixels
     .webp({
       lossless: true,
-      quality: 100
+      quality: 80
     });
 
   await convert.toFile(newFilePath);

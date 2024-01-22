@@ -13,7 +13,7 @@ for await (const file of glob.scan(".")) {
   const convert = sharp(file)
     .webp({
       lossless: false,
-      quality: 25
+      quality: 20
     });
 
   await convert.toFile(newFilePath);
