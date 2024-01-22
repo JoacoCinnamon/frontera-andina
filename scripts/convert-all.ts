@@ -15,8 +15,8 @@ for await (const file of glob.scan(".")) {
   const convert = sharp(file)
     // .trim({ threshold: 0 }) // This removes transparent pixels
     .webp({
-      lossless: true,
-      quality: 80
+      lossless: false,
+      quality: 75
     });
 
   await convert.toFile(newFilePath);
